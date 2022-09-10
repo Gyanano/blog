@@ -58,7 +58,7 @@
                 <li class="nav-item dropdown" v-if="is_login">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                       @click="show_menu_click">admin</a>
+                       @click="show_menu_click">[[username]]</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="display: block"
                          v-show="show_menu">
                         <a class="dropdown-item" href="{% url 'users:writeblog' %}">写文章</a>
@@ -87,13 +87,14 @@
                 </div>
                 <!-- 文章正文 -->
                 <div class="col-12" style="word-break: break-all;word-wrap: break-word;">
+                    <img src="{{ article.avatar.url }}" width="100%" height="100%">
                     {{ article.content|safe }}
                 </div>
                 <br>
                 <!-- 发表评论 -->
                 <hr>
                 <br>
-                <h5 class="row justify-content-center" v-show="!is_login">请<a href="login.html">登录</a>后回复
+                <h5 class="row justify-content-center" v-show="!is_login">请<a href="{% url 'users:login' %}">登录</a>后回复
                 </h5>
                 <br>
                 <div>
@@ -104,10 +105,11 @@
                             <div>
                                 <div class="django-ckeditor-widget" data-field-id="id_body"
                                      style="display: inline-block;">
-                <textarea cols="40" id="id_body" name="content" rows="10" required data-processed="0"
+                                    <textarea type="text" class="form-control"  id="id_body" name="content" rows="8" cols="108"></textarea>
+                <!--<textarea cols="40" id="id_body" name="content" rows="10" required data-processed="0"
                           :data-config="data_config" data-external-plugin-resources="[]" data-id="id_body"
                           data-type="ckeditortype">
-                </textarea>
+                </textarea>-->
                                 </div>
                             </div>
                         </div>

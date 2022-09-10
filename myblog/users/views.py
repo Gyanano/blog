@@ -338,7 +338,7 @@ class WriteBlogView(LoginRequiredMixin, View):
                 category=article_category,
                 tags=tags,
                 title=title,
-                sumary=summary,
+                summary=summary,
                 content=content
             )
         except Exception as e:

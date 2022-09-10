@@ -33,7 +33,7 @@
         <ul class="nav navbar-nav">
             <!-- 如果用户已经登录，则显示用户名下拉框 -->
             <li class="nav-item dropdown" v-if="is_login">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="show_menu_click">admin</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="show_menu_click">[[username]]</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="display: block" v-show="show_menu">
                     <a class="dropdown-item" href="{% url 'users:writeblog' %}">写文章</a>
                     <a class="dropdown-item" href="{% url 'users:center' %}">个人信息</a>
@@ -55,6 +55,7 @@
             <br>
             <!-- 提交文章的表单 -->
             <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <!-- 文章标题图 -->
                 <div class="form-group">
                     <label for="avatar">标题图</label>
@@ -89,17 +90,17 @@
                 <!-- 文章摘要 -->
                 <div class="form-group">
                     <!-- 标签 -->
-                    <label for="sumary">文章摘要</label>
+                    <label for="summary">文章摘要</label>
                     <!-- 文本框 -->
-                    <input type="text" class="form-control" id="sumary" name="sumary">
+                    <input type="text" class="form-control" id="summary" name="summary">
                 </div>
                 <!-- 文章正文 -->
                 <div class="form-group">
-                    <label for="body">文章正文</label>
+                    <label for="content">文章正文</label>
                     <!-- 文本区域 -->
-                    <!--<textarea type="text" class="form-control" id="body" name="body" rows="12"></textarea>-->
-                    <textarea cols="40" id="id_body" name="content" rows="10" required data-processed="0" :data-config="data_config" data-external-plugin-resources="[]" data-id="id_body" data-type="ckeditortype">
-                        </textarea>
+                    <textarea type="text" class="form-control" id="content" name="content" rows="12"></textarea>
+{#                    <textarea cols="40" id="id_body" name="content" rows="10" required data-processed="0" :data-config="data_config" data-external-plugin-resources="[]" data-id="id_body" data-type="ckeditortype">#}
+{#                        </textarea>#}
                 </div>
                 <!-- 提交按钮 -->
                 <button type="submit" class="btn btn-primary">完成</button>
@@ -111,7 +112,7 @@
 <!-- Footer -->
 <footer class="py-3 bg-dark" id="footer">
     <div class="container">
-        <h5 class="m-0 text-center text-white">Copyright @ qiruihua</h5>
+        <h5 class="m-0 text-center text-white">Copyright @ Gyanano</h5>
     </div>
 </footer>
 </div>

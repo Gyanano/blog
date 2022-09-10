@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import response
 from django.shortcuts import render, redirect
 from django.urls import reverse
