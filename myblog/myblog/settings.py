@@ -131,7 +131,7 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             # "CONNECTION_POOL_KWARGS": {"max_connections": 100}
-            # "PASSWORD": "密码",
+            "PASSWORD": "redis@123456",
         }
     },
     "session": {
@@ -191,3 +191,8 @@ LOGGING = {
         },
     }
 }
+
+# 使用自己创建的用户模型类
+# 子应用名.类名
+AUTH_USER_MODEL = 'users.User'
+
