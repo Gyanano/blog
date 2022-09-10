@@ -123,6 +123,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# 图片的统一路由
+MEDIA_URL = '/media/'
+
 # redis配置
 CACHES = {
     "default": {
@@ -195,4 +200,7 @@ LOGGING = {
 # 使用自己创建的用户模型类
 # 子应用名.类名
 AUTH_USER_MODEL = 'users.User'
+
+LOGIN_URL = '/login/'
+
 
