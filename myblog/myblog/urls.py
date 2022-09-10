@@ -31,4 +31,5 @@ urlpatterns = [
     # app_name为子应用的名字
     # namespace为命名空间,确保两个同名的urls不冲突
     path('', include(('users.urls', 'users'), namespace='users')),
+    path('', include(('home.urls', 'home'), namespace='home')),
 ]
