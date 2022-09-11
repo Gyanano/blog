@@ -29,7 +29,7 @@
         <div class="container">
             <!-- 导航栏商标 -->
             <div>
-                <a class="navbar-brand" href="index.html">个人博客</a>
+                <a class="navbar-brand" href="{% url 'home:index' %}">个人博客</a>
             </div>
             <!-- 分类 -->
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -88,15 +88,18 @@
                 <!-- 文章正文 -->
                 <div class="col-12" style="word-break: break-all;word-wrap: break-word;">
                     <img src="{{ article.avatar.url }}" width="100%" height="100%">
-                    {{ article.content|safe }}
+                    <hr>
+                    <div id="article-content" style="padding: 1rem">
+                        {{ article.content|safe }}
+                    </div>
                 </div>
                 <br>
                 <!-- 发表评论 -->
-                <hr>
                 <br>
                 <h5 class="row justify-content-center" v-show="!is_login">请<a href="{% url 'users:login' %}">登录</a>后回复
                 </h5>
                 <br>
+                <hr>
                 <div>
                     <form method="POST">
                         {% csrf_token %}
@@ -156,7 +159,7 @@
     <!-- Footer -->
     <footer class="py-3 bg-dark" id="footer">
         <div class="container">
-            <h5 class="m-0 text-center text-white">Copyright @ qiruihua</h5>
+            <h5 class="m-0 text-center text-white">Copyright @ Gyanano</h5>
         </div>
     </footer>
 </div>
